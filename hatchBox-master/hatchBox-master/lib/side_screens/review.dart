@@ -78,7 +78,7 @@ final String rev,rev1,rev2;
                       ),
                       width: MediaQuery.of(context).size.width/1.3,
                       height: 100,
-                      child:Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley")
+                      child:Text("$rev1")
                   ),
                 ),
               ],
@@ -113,7 +113,7 @@ final String rev,rev1,rev2;
                       ),
                       width: MediaQuery.of(context).size.width/1.3,
                       height: 100,
-                      child:Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley")
+                      child:Text("$rev2")
                   ),
                 ),
               ],

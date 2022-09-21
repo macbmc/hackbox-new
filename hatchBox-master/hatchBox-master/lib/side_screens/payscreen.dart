@@ -8,16 +8,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hatch_box/side_screens/paydemo.dart';
 import 'package:hatch_box/side_screens/prof.dart';
 
-class PayScreen extends StatefulWidget {
-  const PayScreen({Key? key
+class PayScreen extends StatelessWidget {
+  const PayScreen({Key? key,
+    required this.tprice
   }) : super(key: key);
-//final String ImgPath;
-  @override
-  State<PayScreen> createState() => _PayState();
-}
-
-class _PayState extends State<PayScreen> {
-
+ final String tprice;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -60,92 +55,94 @@ class _PayState extends State<PayScreen> {
               color: Colors.brown,),
           ],
         ),
-      body: Container(
-        padding: EdgeInsets.only(top: 30.0,left: 20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-           Row(
-             children: [
-               Icon(Icons.account_balance,size: 30,color: Colors.white,),
-               SizedBox(width: 20.0,),
-               Text("Payement Modes",style: TextStyle(fontSize: 25,color: Colors.white),),
-             ],
-           ),
-            GestureDetector(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                  return PayDemo();
-                }));},
-              child: Container(
-                child: Image.asset("assets/card.png"),
+        body: Container(
+          padding: EdgeInsets.only(top: 10.0,left: 20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text("Total price is :$tprice",style: TextStyle(fontSize: 20,color: Colors.white),),
+              Row(
+                children: [
+                  Icon(Icons.account_balance,size: 30,color: Colors.white,),
+                  SizedBox(width: 20.0,),
+                  Text("Payment Modes",style: TextStyle(fontSize: 25,color: Colors.white),),
+                ],
               ),
-            ),
-            Text("or Checkout With",style: TextStyle(fontSize: 20,color: Colors.white),),
-            GestureDetector(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                  return PayDemo();
-                }));},
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-                elevation: 10.0,
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    return PayDemo();
+                  }));},
                 child: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
-                  ),
-                  width: MediaQuery.of(context).size.width/2,
-                  height: 80,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Image.asset("assets/paytm.png")
-                    ],
-                  ),
-
-
+                  child: Image.asset("assets/card.png"),
                 ),
               ),
-            ),
-            GestureDetector(
-              onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                  return PayDemo();
-                }));},
-              child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-                elevation: 10.0,
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
-                  ),
-                  width: MediaQuery.of(context).size.width/1.5,
-                  height: 80,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Image.asset("assets/Google-Pay-logo-1900x700_c.jpg")
-                    ],
-                  ),
+              Text("or Checkout With",style: TextStyle(fontSize: 20,color: Colors.white),),
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    return PayDemo();
+                  }));},
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0)),
+                  elevation: 10.0,
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                    ),
+                    width: MediaQuery.of(context).size.width/2,
+                    height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Image.asset("assets/paytm.png")
+                      ],
+                    ),
 
 
+                  ),
                 ),
               ),
-            ),
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                    return PayDemo();
+                  }));},
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0)),
+                  elevation: 10.0,
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                    ),
+                    width: MediaQuery.of(context).size.width/1.5,
+                    height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Image.asset("assets/Google-Pay-logo-1900x700_c.jpg")
+                      ],
+                    ),
 
-          ],
+
+                  ),
+                ),
+              ),
+
+            ],
+          ),
         ),
-      ),
       ),
     );
   }
 }
+
 
 
 

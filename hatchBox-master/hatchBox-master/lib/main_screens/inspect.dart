@@ -80,7 +80,7 @@ class _DetPState extends State<DetP> {
       "rev1":widget.rev1,
       "rev2":widget.rev2,
       "status":widget.status
-    }).then((value) => print("Added to cart"));
+    }).then((value) => print("Added to orders"));
   }
   @override
   Widget build(BuildContext context) {
@@ -343,6 +343,7 @@ class _DetPState extends State<DetP> {
                               ),
                             ),
                             onPressed:(){addtoCart();
+                              addtoOrders();
                               }, child: Text("Add to Cart",style: TextStyle(fontSize: 20),)),
                       ],
                     ),

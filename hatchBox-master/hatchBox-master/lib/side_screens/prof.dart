@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hatch_box/auth_screens/login.dart';
 import 'package:hatch_box/function_screens/FileUpd.dart';
 import 'package:hatch_box/main_screens/Home.dart';
 import 'package:hatch_box/side_screens/contact.dart';
@@ -18,7 +19,7 @@ class ProfP extends StatefulWidget {
 }
 
 class _ProfPState extends State<ProfP> {
-  final user = FirebaseAuth.instance.currentUser!;
+   User user = FirebaseAuth.instance.currentUser!;
   String? ImgPath, name,phno, email;
   Future getData()async{
     final DocumentSnapshot userDoc =await FirebaseFirestore.instance.collection("users").doc(user.uid).get();
@@ -98,7 +99,7 @@ class _ProfPState extends State<ProfP> {
                             Icons.logout,
                           ),
                           iconSize: 30,
-                          onPressed: (){signout();},
+                          onPressed: (){_signOut();} ,
                         ),
                       ],
                     ),
@@ -320,9 +321,16 @@ class _ProfPState extends State<ProfP> {
       ),
     );
   }
-  Future signout() async{
-    await FirebaseAuth.instance.signOut();
-  }
+   Future _signOut() async {
+     await FirebaseAuth.instance.signOut();
+     User user = FirebaseAuth.instance.currentUser!;
+     runApp(
+         new MaterialApp(
+           home: new MyLogin(),
+         )
+
+     );
+   }
 
   }
 class Profinfo extends StatelessWidget {

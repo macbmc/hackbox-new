@@ -97,17 +97,7 @@ class _WishlistState extends State<Wishlist> {
                                   ),
                                 ),
                               );
-                              /*return Product(ImgPath:_snap['image'].toString(),
-                                name:_snap['prod_name'].toString(),
-                                discount: _snap['discount'].toString(),
-                                mrp: _snap['mrp'].toString(),
-                                your_price: _snap['price'].toString(),
-                                cat: _snap['category'].toString(),
-                                long_description: _snap['long_description'].toString(),
-                                status: _snap['status'].toString(),
-                                short_description: _snap['short_description'].toString(),
-                                review: _snap['rev'].toString(),
-                              );*/
+
                             }
                         );
                       },

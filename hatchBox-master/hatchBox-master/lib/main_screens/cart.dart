@@ -104,8 +104,6 @@ class _CartState extends State<Cart> {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text("Total:",style: TextStyle(fontSize: 20),),
-                          Text("$tprice",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.red),)
                         ],
                       ),
                       ElevatedButton(
@@ -123,7 +121,7 @@ class _CartState extends State<Cart> {
                           ),
                           onPressed:(){
                             Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                              return PayScreen();
+                              return PayScreen(tprice: tprice.toString(),);
                             }));}, child: Text("Proceed to Payment",style: TextStyle(fontSize: 20),)),
                     ],
                   ),

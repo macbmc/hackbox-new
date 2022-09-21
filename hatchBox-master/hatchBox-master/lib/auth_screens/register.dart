@@ -19,6 +19,7 @@ class _MyRegisterState extends State<MyRegister> {
     return Container(
       child: SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
             backgroundColor: Colors.transparent,
             /*appBar: AppBar(
             backgroundColor: Colors.transparent,

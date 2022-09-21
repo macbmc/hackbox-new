@@ -56,9 +56,9 @@ class _OrderState extends State<Order> {
                     width:  MediaQuery.of(context).size.width,
                     child: StreamBuilder(
                       stream:FirebaseFirestore.instance.collection("user-order").doc(FirebaseAuth.instance
-                          .currentUser!.email).collection("prod").snapshots(),
+                          .currentUser!.email).collection("item").snapshots(),
                       builder: (BuildContext context,AsyncSnapshot <QuerySnapshot> snapshot){
-                        if(snapshot.hasData)
+                        if(snapshot.hasError)
                         {
                           return Center(child: Text("Ntho Evdyo oru Prashnm"),);
                         }
@@ -71,8 +71,8 @@ class _OrderState extends State<Order> {
                                   Navigator.of(context)
                                       .push(MaterialPageRoute(builder: (context) {
                                     return DetP(ImgPath:_snap['image'].toString(),discount:_snap['discount'].toString(),mrp: _snap['mrp'].toString(),
-                                        name: _snap['prod_name'].toString(),your_price: _snap['price'].toString(),ls: _snap['long_description'].toString(),ss:_snap['short_description'].toString(),
-                                        rev: _snap['rev'].toString(),status:_snap['status'].toString(),cat:_snap['category'].toString(),rev2: _snap['rev2'].toString(),rev1: _snap['rev1'].toString());
+                                      name: _snap['prod_name'].toString(),your_price: _snap['price'].toString(),ls: _snap['long_description'].toString(),ss:_snap['short_description'].toString(),
+                                      rev: _snap['rev'].toString(),status:_snap['status'].toString(),cat:_snap['category'].toString(),rev1:_snap['rev1'].toString() ,rev2: _snap['rev2'].toString(),);
                                   }));
                                 },
                                 child: SizedBox(
@@ -82,11 +82,26 @@ class _OrderState extends State<Order> {
                                       backgroundImage: NetworkImage(
                                           _snap['image'].toString()),
                                     ),
-                                    trailing: Text(_snap["mrp"].toString()),
+                                    /*trailing: ElevatedButton(
+                                        style: ButtonStyle(
+                                          backgroundColor:MaterialStateProperty.all(Colors.brown),
+                                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(40.0),
+                                              side: BorderSide(
+                                                color: Colors.white,
+                                                width: 2.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        onPressed:(){*//*deleteitem(_snap.id);*//*
+                                        }, child: Text("Remove",style: TextStyle(fontSize: 10),)),*/
                                     title: Text(_snap["prod_name"].toString()),
                                   ),
                                 ),
                               );
+
                             }
                         );
                       },
