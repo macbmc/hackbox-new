@@ -322,14 +322,12 @@ class _ProfPState extends State<ProfP> {
     );
   }
    Future _signOut() async {
-     await FirebaseAuth.instance.signOut();
-     User user = FirebaseAuth.instance.currentUser!;
-     runApp(
-         new MaterialApp(
-           home: new MyLogin(),
-         )
-
-     );
+     await FirebaseAuth.instance.signOut().then((value){
+       {Navigator.of(context).push(MaterialPageRoute(builder: (context){
+         return MyLogin();
+       }));}
+     });
+     //User user = FirebaseAuth.instance.currentUser!;
    }
 
   }
